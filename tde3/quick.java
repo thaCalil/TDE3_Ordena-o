@@ -1,14 +1,14 @@
-package tde4;
+package tde3;
 
 import java.util.Random;
 
-// TDE3 - Ordenação - BubbleSort - Thaíssa V. Calil
+// TDE3 - OrdenaÃ§Ã£o - BubbleSort - ThaÃ­ssa V. Calil
 
 class quicksort {
     private static int trocas = 0;
     private static int iteracoes = 0;
 
-    // método principal do quick sort
+    // mÃ©todo principal do quick sort
     public static void quick(int[] array, int baixo, int alto) {
         if (baixo < alto) {
             int pi = particiona(array, baixo, alto);// encontra um ponto com o particiona
@@ -18,16 +18,16 @@ class quicksort {
         }
     }
 
-    // método do particiona
+    // mÃ©todo do particiona
     static int particiona(int[] x, int inferior, int superior) {
-        int pivot = x[superior]; // escolhe o pivô(último número)
+        int pivot = x[superior]; // escolhe o pivÃ´(Ãºltimo nÃºmero)
         int i = (inferior - 1); 
 
-        // particio o array com o pivô
+        // particio o array com o pivÃ´
         for (int j = inferior; j <= superior - 1; j++) {
             if (x[j] < pivot) {
                 i++; 
-                // troca os números
+                // troca os nÃºmeros
                 int temp = x[i];
                 x[i] = x[j];
                 x[j] = temp;
@@ -35,7 +35,7 @@ class quicksort {
             }
             iteracoes++;
         }
-        // troca o lugar do pivô
+        // troca o lugar do pivÃ´
         int temp = x[i + 1];
         x[i + 1] = x[superior];
         x[superior] = temp;
@@ -55,7 +55,7 @@ class quicksort {
 
 public class quick {
     public static void main(String[] args) {
-        // cria 50 números aleatórios e os coloca no vetor
+        // cria 50 nÃºmeros aleatÃ³rios e os coloca no vetor
         int[] vetor = new int[50];
         Random rand = new Random(); 
 
@@ -63,14 +63,14 @@ public class quick {
             vetor[i] = rand.nextInt(100000);
         }
 
-        long quick1 = System.nanoTime(); // começa a medir o tempo
+        long quick1 = System.nanoTime(); // comeÃ§a a medir o tempo
         quicksort.quick(vetor, 0, vetor.length - 1);
         long quick2 = System.nanoTime(); // para de medir o tempo
         long duracao = (quick2 - quick1); // calcula o tempo final
 
-        System.out.println("Tempo de execução: " + duracao + " ns");
+        System.out.println("Tempo de execuÃ§Ã£o: " + duracao + " ns");
         System.out.println("Quantidade de trocas: " + quicksort.getTrocas());
-        System.out.println("Quantidade de Iterações: " + quicksort.getIteracoes());
+        System.out.println("Quantidade de IteraÃ§Ãµes: " + quicksort.getIteracoes());
         
         /*for (int i = 0; i < vetor.length; i++) {
             System.out.print(vetor[i] + " \n");
