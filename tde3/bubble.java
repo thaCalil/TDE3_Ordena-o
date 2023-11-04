@@ -2,24 +2,24 @@ package tde3;
 
 import java.util.Random;
 
-// TDE3 - Ordena��o - BubbleSort - Tha�ssa V. Calil
+// TDE3 - Ordenação - BubbleSort - Thaíssa V. Calil
 
 class bubblesort {
     private static int trocas = 0;
     private static int iteracoes = 0;
 
-    // m�todo principal do bubble sort
+    // método principal do bubble sort
     public static void bubble(int[] vetor) {
         int n = vetor.length;
         int temp = 0;
-        // loop passa pelos n�meros do array
+        // loop passa pelos números do array
         for(int i=0; i < n; i++){
-            // loop para os n�meros restantes
+            // loop para os números restantes
             for(int j=1; j < (n-i); j++){
                 iteracoes++;
-                // se o n�mero for maior que o pr�ximo
+                // se o número for maior que o próximo
                 if(vetor[j-1] > vetor[j]){
-                    //trocar os n�meros
+                    //trocar os números
                     temp = vetor[j-1];
                     vetor[j-1] = vetor[j];
                     vetor[j] = temp;
@@ -40,7 +40,7 @@ class bubblesort {
 
 public class bubble {
     public static void main(String[] args) {
-        // cria 50 n�meros aleat�rios e os coloca no vetor
+        // cria 50 números aleatórios e os coloca no vetor
         int[] vetor = new int[50];
         Random rand = new Random();
 
@@ -48,10 +48,10 @@ public class bubble {
             vetor[i] = rand.nextInt(100000);
         }
 
-        long bubble1 = System.nanoTime(); // come�a a medir o tempo
+        long bubble1 = System.nanoTime(); // começa a medir o tempo
         bubblesort.bubble(vetor);
         long bubble2 = System.nanoTime(); // para de medir o tempo
-        long duracao = (bubble2 - bubble1); // calcula o tempo fina�
+        long duracao = (bubble2 - bubble1); // calcula o tempo final
 
         System.out.println("Tempo de execu��o: " + duracao + " ns");
         System.out.println("Quantidade de trocas: " + bubblesort.getTrocas());
